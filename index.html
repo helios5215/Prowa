@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te Amo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <header class="fade-in">
+            <h1>Te Amo</h1>
+        </header>
+
+        <section class="info-section slide-in-top">
+            <p class="counter-text">Días desde que iniciamos:</p>
+            <div id="days-counter" class="counter-display">0</div>
+        </section>
+
+        <section class="info-section slide-in-bottom">
+            <p class="time-text">Hora actual (Bolivia):</p>
+            <div id="local-time" class="time-display">Cargando...</div>
+        </section>
+
+        <section class="gif-section zoom-in">
+            <img id="main-gif" src="ruta/a/tu/gif.gif" alt="Un GIF especial" class="gif-placeholder">
+            </section>
+
+        <nav class="icon-navigation fade-in-delay">
+            <div class="icon-item" data-section="maps">
+                <img src="https://via.placeholder.com/60x60/FF00FF/000000?text=MAPS" alt="Icono de Mapas">
+                <p>Mapas</p>
+            </div>
+            <div class="icon-item" data-section="gallery">
+                <img src="https://via.placeholder.com/60x60/FF00FF/000000?text=GALERÍA" alt="Icono de Galería">
+                <p>Galería</p>
+            </div>
+            <div class="icon-item" data-section="calendar">
+                <img src="https://via.placeholder.com/60x60/FF00FF/000000?text=CALENDARIO" alt="Icono de Calendario">
+                <p>Calendario</p>
+            </div>
+        </nav>
+
+        <main class="content-sections">
+            <section id="maps-section" class="hidden content-section slide-in-right">
+                <h2>Lugares Especiales</h2>
+                <div class="link-list">
+                    <a href="https://maps.app.goo.gl/EJEMPLO1" target="_blank" class="neon-link">Nuestro Primer Lugar</a>
+                    <a href="https://maps.app.goo.gl/EJEMPLO2" target="_blank" class="neon-link">Cafetería Favorita</a>
+                    </div>
+                <button class="back-button">Volver</button>
+            </section>
+
+            <section id="gallery-section" class="hidden content-section slide-in-right">
+                <h2>Nuestros Momentos</h2>
+                <div class="gallery-grid">
+                    <img src="https://via.placeholder.com/150x150/FF00FF/000000?text=IMG1" alt="Momento 1" class="gallery-thumbnail" data-full-src="https://via.placeholder.com/600x400/FF00FF/000000?text=Imagen_Grande_1">
+                    <img src="https://via.placeholder.com/150x150/FF00FF/000000?text=IMG2" alt="Momento 2" class="gallery-thumbnail" data-full-src="https://via.placeholder.com/600x400/FF00FF/000000?text=Imagen_Grande_2">
+                    <img src="https://via.placeholder.com/150x150/FF00FF/000000?text=IMG3" alt="Momento 3" class="gallery-thumbnail" data-full-src="https://via.placeholder.com/600x400/FF00FF/000000?text=Imagen_Grande_3">
+                    </div>
+                <div id="gallery-modal" class="modal hidden">
+                    <span class="close-button">&times;</span>
+                    <img class="modal-content" id="modal-image">
+                </div>
+                <button class="back-button">Volver</button>
+            </section>
+
+            <section id="calendar-section" class="hidden content-section slide-in-right">
+                <h2>Calendario de Eventos</h2>
+                <div class="calendar-header">
+                    <button id="prevMonth" class="neon-button">&lt;</button>
+                    <h3 id="currentMonthYear"></h3>
+                    <button id="nextMonth" class="neon-button">&gt;</button>
+                </div>
+                <div class="calendar-grid">
+                    <div class="day-name">Dom</div>
+                    <div class="day-name">Lun</div>
+                    <div class="day-name">Mar</div>
+                    <div class="day-name">Mié</div>
+                    <div class="day-name">Jue</div>
+                    <div class="day-name">Vie</div>
+                    <div class="day-name">Sáb</div>
+                </div>
+                <div id="calendar-days" class="calendar-grid">
+                    </div>
+
+                <div class="event-input">
+                    <input type="date" id="event-date" class="neon-input">
+                    <input type="text" id="event-title" placeholder="Título del evento" class="neon-input">
+                    <button id="add-event-button" class="neon-button">Añadir Evento</button>
+                </div>
+                <div id="events-list">
+                    <h3>Eventos:</h3>
+                    <ul id="events-ul"></ul>
+                </div>
+
+                <button class="back-button">Volver</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

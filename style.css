@@ -1,0 +1,528 @@
+:root {
+    --bg-color: #000000;
+    --neon-pink: #FF00FF; /* Rosa Neón */
+    --neon-pink-light: #FF66FF; /* Rosa Neón más claro para brillos */
+    --font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--neon-pink);
+    font-family: var(--font-family);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea arriba para simular el inicio de una app */
+    min-height: 100vh; /* Asegura que ocupe al menos la altura de la ventana */
+    overflow-x: hidden; /* Evita scroll horizontal por animaciones */
+}
+
+.container {
+    width: 100%;
+    max-width: 400px; /* Ancho típico de un celular */
+    background-color: var(--bg-color);
+    border: 3px solid var(--neon-pink);
+    box-shadow: 0 0 20px var(--neon-pink-light); /* Resplandor neón */
+    border-radius: 25px; /* Bordes redondeados de celular */
+    overflow: hidden; /* Oculta contenido que se desborda por animaciones */
+    position: relative; /* Para posicionar secciones absolutas */
+    min-height: 90vh; /* Altura mínima para simular un dispositivo */
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px; /* Espacio para el final del contenido */
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-shadow: 0 0 10px var(--neon-pink-light);
+    letter-spacing: 2px;
+}
+
+.info-section {
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-top: 1px dashed var(--neon-pink);
+    border-bottom: 1px dashed var(--neon-pink);
+    margin: 10px 20px; /* Margen para simular espacio de la pantalla */
+}
+
+.counter-text, .time-text {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.counter-display, .time-display {
+    font-size: 1.8em;
+    font-weight: 700;
+    text-shadow: 0 0 8px var(--neon-pink-light);
+}
+
+.gif-section {
+    text-align: center;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 300px;
+    border: 2px solid var(--neon-pink);
+    box-shadow: 0 0 15px var(--neon-pink-light);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.gif-placeholder {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.icon-navigation {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 10px;
+    border-top: 2px solid var(--neon-pink);
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente para la barra de iconos */
+    margin-top: auto; /* Empuja la barra de navegación hacia abajo */
+    position: sticky; /* Se mantiene en la parte inferior si hay mucho contenido */
+    bottom: 0;
+    z-index: 100;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.icon-item:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 5px var(--neon-pink-light);
+}
+
+.icon-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    border: 2px solid var(--neon-pink);
+    box-shadow: 0 0 10px var(--neon-pink-light);
+    transition: box-shadow 0.3s ease;
+}
+
+.icon-item img:hover {
+    box-shadow: 0 0 15px var(--neon-pink-light), 0 0 25px var(--neon-pink);
+}
+
+.icon-item p {
+    margin-top: 5px;
+    font-size: 0.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Secciones de Contenido */
+.content-sections {
+    position: absolute; /* Para que ocupen el mismo espacio y se superpongan */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Ocupa toda la altura del contenedor */
+    background-color: var(--bg-color);
+    padding-top: 20px; /* Para que el contenido no quede pegado al borde superior del contenedor */
+    overflow-y: auto; /* Permite scroll si el contenido es muy largo */
+    box-sizing: border-box;
+}
+
+.content-section {
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 0 15px var(--neon-pink-light);
+    min-height: 100%; /* Asegura que la sección ocupe toda la altura cuando esté visible */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea el contenido hacia arriba */
+}
+
+.content-section h2 {
+    font-size: 2em;
+    text-shadow: 0 0 8px var(--neon-pink-light);
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Estilos para el botón de volver */
+.back-button {
+    background-color: var(--neon-pink);
+    color: var(--bg-color);
+    border: 2px solid var(--neon-pink);
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 30px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px var(--neon-pink);
+}
+
+.back-button:hover {
+    background-color: var(--bg-color);
+    color: var(--neon-pink);
+    box-shadow: 0 0 15px var(--neon-pink-light), 0 0 25px var(--neon-pink);
+}
+
+/* Estilos de enlaces (para la sección de mapas) */
+.link-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.neon-link {
+    color: var(--neon-pink);
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 10px;
+    border: 1px solid var(--neon-pink);
+    border-radius: 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: block; /* Para que ocupe todo el ancho disponible */
+}
+
+.neon-link:hover {
+    background-color: var(--neon-pink);
+    color: var(--bg-color);
+    box-shadow: 0 0 15px var(--neon-pink-light);
+}
+
+/* Estilos de Galería */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery-thumbnail {
+    width: 100%;
+    height: 100px; /* Altura fija para miniaturas */
+    object-fit: cover;
+    border: 2px solid var(--neon-pink);
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 8px var(--neon-pink-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-thumbnail:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px var(--neon-pink-light), 0 0 20px var(--neon-pink);
+}
+
+/* Modal de Galería */
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo en la pantalla */
+    z-index: 1000; /* Por encima de todo lo demás */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    overflow: auto; /* Habilita scroll si la imagen es grande */
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo negro semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    border: 3px solid var(--neon-pink);
+    box-shadow: 0 0 30px var(--neon-pink-light);
+    animation: zoomInModal 0.4s;
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: var(--neon-pink);
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    text-shadow: 0 0 10px var(--neon-pink-light);
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--neon-pink-light);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos de Calendario */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-shadow: 0 0 5px var(--neon-pink-light);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.day-name {
+    font-weight: bold;
+    color: var(--neon-pink-light);
+    padding: 5px;
+    border-bottom: 1px solid var(--neon-pink);
+}
+
+.calendar-day {
+    padding: 10px 5px;
+    border: 1px solid rgba(255, 0, 255, 0.3); /* Borde más suave */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    font-size: 0.9em;
+}
+
+.calendar-day:hover {
+    background-color: rgba(255, 0, 255, 0.1);
+    box-shadow: 0 0 8px var(--neon-pink-light);
+}
+
+.calendar-day.current-day {
+    background-color: var(--neon-pink);
+    color: var(--bg-color);
+    font-weight: bold;
+    box-shadow: 0 0 15px var(--neon-pink);
+}
+
+.calendar-day.has-event {
+    border: 2px solid var(--neon-pink-light);
+    box-shadow: 0 0 10px var(--neon-pink);
+    background-color: rgba(255, 0, 255, 0.2);
+}
+
+.calendar-day .event-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--neon-pink-light);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 5px var(--neon-pink-light);
+}
+
+.empty-day {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px dashed rgba(255, 0, 255, 0.1);
+    cursor: default;
+}
+.empty-day:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: none;
+}
+
+.event-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 25px;
+    padding: 10px;
+    border: 1px solid var(--neon-pink);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.neon-input {
+    background-color: var(--bg-color);
+    color: var(--neon-pink);
+    border: 1px solid var(--neon-pink);
+    border-radius: 5px;
+    padding: 8px 10px;
+    font-size: 1em;
+    outline: none;
+    box-shadow: 0 0 5px var(--neon-pink-light);
+    transition: box-shadow 0.3s ease;
+}
+
+.neon-input:focus {
+    box-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink-light);
+}
+
+/* Para el input type="date" */
+.neon-input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) hue-rotate(270deg) saturate(2); /* Ajusta el color del icono del calendario a rosa neón */
+}
+.neon-input[type="date"] {
+    position: relative;
+}
+
+.neon-button {
+    background-color: var(--neon-pink);
+    color: var(--bg-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px var(--neon-pink);
+}
+
+.neon-button:hover {
+    background-color: var(--bg-color);
+    color: var(--neon-pink);
+    border: 1px solid var(--neon-pink);
+    box-shadow: 0 0 15px var(--neon-pink-light), 0 0 25px var(--neon-pink);
+}
+
+#events-list {
+    margin-top: 20px;
+    text-align: left;
+    border-top: 1px dashed var(--neon-pink);
+    padding-top: 15px;
+}
+
+#events-ul {
+    list-style: none;
+    padding: 0;
+}
+
+#events-ul li {
+    background-color: rgba(255, 0, 255, 0.1);
+    border: 1px solid var(--neon-pink);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 5px var(--neon-pink-light);
+}
+
+#events-ul li .delete-event {
+    background-color: transparent;
+    color: var(--neon-pink);
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+#events-ul li .delete-event:hover {
+    opacity: 1;
+    text-shadow: 0 0 5px var(--neon-pink-light);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInTop {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInBottom {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutLeft {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(-100%); opacity: 0; }
+}
+
+@keyframes zoomInModal {
+    from { transform: scale(0.7); }
+    to { transform: scale(1); }
+}
+
+.fade-in { animation: fadeIn 1s ease-out; }
+.slide-in-top { animation: slideInTop 0.8s ease-out; }
+.slide-in-bottom { animation: slideInBottom 0.8s ease-out; }
+.zoom-in { animation: zoomIn 0.8s ease-out; }
+.fade-in-delay { animation: fadeIn 1s ease-out 0.5s forwards; opacity: 0; } /* Retraso y se mantiene visible */
+
+/* Transiciones para cambio de secciones */
+.content-section.entering {
+    animation: slideInRight 0.5s forwards;
+    display: flex !important; /* Asegura que esté visible durante la animación */
+}
+
+.content-section.leaving {
+    animation: slideOutLeft 0.5s forwards;
+}
+
+/* Responsive para dispositivos pequeños */
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        max-width: none;
+        min-height: 100vh;
+        border-radius: 0; /* Sin bordes redondeados en pantallas muy pequeñas */
+        border: none;
+    }
+
+    header {
+        font-size: 2em;
+    }
+
+    .icon-item img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .icon-item p {
+        font-size: 0.7em;
+    }
+
+    .modal-content {
+        max-width: 95%;
+        max-height: 95%;
+    }
+}
+
+
